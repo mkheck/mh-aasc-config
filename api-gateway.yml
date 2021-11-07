@@ -1,6 +1,6 @@
 zuul:
-  prefix: /api
-  ignoredServices: '*'
+  # prefix: /api
+  # ignoredServices: '*'
   routes:
     airport-service: /airports/**
     weather-service: /weather/**
