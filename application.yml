@@ -32,7 +32,6 @@ management.endpoints.web.exposure.include: "*"
 # Waiting issue https://github.com/spring-projects/spring-boot/issues/13042
 # spring.cloud.refresh.refreshable: false
 
-
 # Logging
 logging.level.org.springframework: INFO
 
@@ -81,3 +80,8 @@ management:
 #     username: root
 #     password: aascdb
 #     initialization-mode: ALWAYS
+
+bestplane: '{cipher}af3ac2cda0bc35f0c55f76f5e2d57d11b8e93078790662af40918e2e61554146'
+
+avwx:
+  token: '{cipher}a55eebf22029f129c7aab38026ea536f4b4f2199a1d176215ec81f1b12a791afa4fce34cc08668090688654be307322f968717ec09728e842537f403c05b5b80'
