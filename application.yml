@@ -25,12 +25,8 @@ server:
 #     hibernate:
 #       ddl-auto: none
 
-# Enable all actuator endpoints
+# Enable all actuator endpoints FOR DEMO PURPOSES ONLY!
 management.endpoints.web.exposure.include: "*"
-
-# Temporary hack required by the Spring Boot 2 / Spring Cloud Finchley branch
-# Waiting issue https://github.com/spring-projects/spring-boot/issues/13042
-# spring.cloud.refresh.refreshable: false
 
 # Logging
 logging.level.org.springframework: INFO
