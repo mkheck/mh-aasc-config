@@ -37,8 +37,8 @@ test:
 spring:
   config:
     activate:
-      on-profile: docker
-      
+      on-profile: local
+
 bestplane: '{cipher}af3ac2cda0bc35f0c55f76f5e2d57d11b8e93078790662af40918e2e61554146'
 
 avwx:
