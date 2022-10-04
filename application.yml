@@ -6,6 +6,25 @@ server:
   # The stop processing uses a timeout which provides a grace period during which existing requests will be allowed to complete but no new requests will be permitted
   shutdown: graceful
 
+# embedded database init, supports mysql too through the 'mysql' spring profile
+# spring:
+#   datasource:
+#     schema: classpath*:db/hsqldb/schema.sql
+#     data: classpath*:db/hsqldb/data.sql
+#   sleuth:
+#     sampler:
+#       probability: 1.0
+#   cloud:
+#     config:
+#       # Allow the microservices to override the remote properties with their own System properties or config file
+#       allow-override: true
+#       # Override configuration with any local property source
+#       override-none: true
+#   jpa:
+#     open-in-view: false
+#     hibernate:
+#       ddl-auto: none
+
 # Enable all actuator endpoints FOR DEMO PURPOSES ONLY!
 management.endpoints.web.exposure.include: "*"
 
@@ -28,16 +47,40 @@ management:
       prometheus:
         enabled: true
 
+# # Chaos Engineering
+# ---
+# spring:
+#   config:
+#     activate:
+#       on-profile: chaos-monkey      
+# management.endpoint.chaosmonkey.enabled: true
+# chaos:
+#   monkey:
+#     enabled: true
+#     watcher:
+#       component: false
+#       controller: false
+#       repository: false
+#       rest-controller: false
+#       service: false
+
+# ---
+# spring:
+#   config:
+#     activate:
+#       on-profile: mysql
+#   datasource:
+#     schema: classpath*:db/mysql/schema.sql
+#     data: classpath*:db/mysql/data.sql
+#     url: jdbc:mysql://localhost:3306/aascdb?useSSL=false
+#     username: root
+#     password: aascdb
+#     initialization-mode: ALWAYS
+
 testplane: Lance
 
 test:
   plane: Saratoga
-
----
-spring:
-  config:
-    activate:
-      on-profile: local
 
 bestplane: '{cipher}af3ac2cda0bc35f0c55f76f5e2d57d11b8e93078790662af40918e2e61554146'
 
