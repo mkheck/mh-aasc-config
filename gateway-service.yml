@@ -1,15 +1,3 @@
-server:
-  port: ${PORT:8080}
-  compression:
-    enabled: true
-    mime-types: application/json,text/css,application/javascript
-    min-response-size: 2048
-
-eureka:
-  instance:
-    # enable to register multiple app instances with a random server port
-    instance-id: ${spring.application.name}:${random.uuid}
-
 spring:
   profiles: default
   cloud:
@@ -33,17 +21,23 @@ spring:
           uri: lb://conditions-service/
           predicates:
           - Path=/conditions/**
+
   # messages:
   #   basename: messages/messages
 
-zuul:
-  # prefix: /api
-  # ignoredServices: '*'
-  routes:
-    airport-service: /airports/**
-    weather-service: /weather/**
-    conditions-service: /conditions/**
-    gateway-service: /gateway/**
+# zuul:
+#   # prefix: /api
+#   # ignoredServices: '*'
+#   routes:
+#     airport-service: /airports/**
+#     weather-service: /weather/**
+#     conditions-service: /conditions/**
+#     gateway-service: /gateway/**
+
+eureka:
+  instance:
+    # enable to register multiple app instances with a random server port
+    instance-id: ${spring.application.name}:${random.uuid}
 
 ---
 spring:
@@ -52,6 +46,13 @@ spring:
       on-profile: local
   zipkin:
     baseUrl: http://tracing-service:9411
+
+server:
+  port: ${PORT:8080}
+  compression:
+    enabled: true
+    mime-types: application/json,text/css,application/javascript
+    min-response-size: 2048
 
 eureka:
   client:
