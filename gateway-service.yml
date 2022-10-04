@@ -12,15 +12,21 @@ spring:
         - id: ap
           uri: lb://airport-service/
           predicates:
-          - Path=/airport/**
+            - Path=/airport/**
+          filters:
+            - StripPrefix=1
         - id: wx
           uri: lb://weather-service/
           predicates:
-          - Path=/weather/**
+            - Path=/weather/**
+          filters:
+            - StripPrefix=1
         - id: cond
           uri: lb://conditions-service/
           predicates:
-          - Path=/conditions/**
+            - Path=/conditions/**
+          filters:
+            - StripPrefix=1
 
   # messages:
   #   basename: messages/messages
